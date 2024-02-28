@@ -1,0 +1,47 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  margin: 0;
+
+  color: #2f1e1e;
+  font-family: "Piazzolla", serif;
+  font-optical-sizing: auto;
+
+  background-image: linear-gradient(#f7efe8, #f7e2c4, #f8d6a0, #f9ca7c, #fabe58);
+}
+
+#nedtelling {
+  text-align: center;
+}
+
+#nedtelling-tekst {
+  font-size: 24px;
+}
+
+.enheter{
+  display: flex;
+  flex-direction: row;
+}
+
+.enhet {
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center;
+  width: 5rem;
+}
+
+.tall {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.tid {
+  font-size: 0.75rem;
+  margin-top: 0;
+}
+
