@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <p class="tid">sekunder</p>
           </div>
         </div>
-        <p class="undertekst">igjen til nasjonal muggedag</p>`
+        <p class="undertekst">igjen til <strong>1. juni</strong> og nasjonal muggedag</p>`
       }
     }, 1000);
   });
