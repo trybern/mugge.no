@@ -3,7 +3,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  height: 100vh;
+  height: 100dvh;
+  max-width: 100dvw;
   margin: 0;
 
   color: #2f1e1e;
@@ -15,6 +16,7 @@ body {
 
 #nedtelling {
   text-align: center;
+  width: 100%;
 }
 
 #nedtelling-tekst {
@@ -22,15 +24,21 @@ body {
 }
 
 .enheter{
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+  margin: auto;
+  
 }
 
 .enhet {
+  display: flex;
   flex-direction: column;
   padding: 1rem;
   text-align: center;
-  width: 5rem;
+  min-width: 5rem;
+  max-width: 6rem;
+  margin: auto;
 }
 
 .tall {
