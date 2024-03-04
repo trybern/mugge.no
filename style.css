@@ -20,6 +20,12 @@ nav h1 {
   margin: 0;
 }
 
+section {
+  max-width: 50rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .screen-sized-section {
   min-width: 100dvw;
   min-height: 100dvh;
