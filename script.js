@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Sett muggedagen til 1. juni
     const targetDate = new Date('June 1, 2024 00:00:00').getTime();
-    /* const targetDate = new Date('February 29, 2024 00:00:00').getTime(); */
+    /* const targetDate = new Date('February 29, 2025 00:00:00').getTime(); */
 
     console.log("Jeg er i gang")
   
