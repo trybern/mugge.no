@@ -30,7 +30,7 @@ section {
 
 .screen-sized-section {
   min-width: 100dvw;
-  min-height: 100dvh;
+  min-height: 80dvh;
 }
 
 .center-items {
