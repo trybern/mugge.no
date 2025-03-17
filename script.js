@@ -1,6 +1,6 @@
 const now = new Date();
 let year = now.getFullYear();
-let targetDate = new Date(year, 3 - 1, 18); // måned er 0-indeks
+let targetDate = new Date(year, 6 - 1, 1); // måned er 0-indeks
 
 checkDate();
 
