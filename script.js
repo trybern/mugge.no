@@ -1,48 +1,52 @@
-function getNextTargetDate(month, day) {
-  const now = new Date();
-  let year = now.getFullYear();
-  let targetDate = new Date(year, month - 1, day); // month is 0-indexed in JS
+const now = new Date();
+let year = now.getFullYear();
+let targetDate = new Date(year, 3 - 1, 18); // måned er 0-indeks
 
-  // Har det vært 1. juni, bruk neste år i stedet
-  if (now > targetDate) {
-    targetDate.setFullYear(year + 1);
+checkDate();
+
+console.log("Neste muggedag: ", new Date(targetDate).toDateString());
+  
+function countDown(target, current) {
+  const timeDifference = target - current;
+    // Tell dager, timer, minutter og sekunder
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    
+    // Angi tid
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+function checkDate() {
+
+  const currentDate = new Date();
+
+  // Sjekk om det er muggedagen
+  if (currentDate.toDateString() === targetDate.toDateString()) {
+    
+    document.getElementById("nedtelling").innerHTML = `<h2 class="feiring">Gratulerer med muggedagen!</h2>`;
+  } else {
+    // Legg på et år hvis muggedagen har vært
+    if (now >= targetDate) { 
+      targetDate.setFullYear(targetDate.getFullYear() + 1);
+    }
+
+    // Tell ned
+    countDown(targetDate.getTime(), currentDate.getTime());
+
   }
-
-  return targetDate;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  const targetDate = getNextTargetDate(6, 1).getTime();
-
-  console.log("Neste muggedag: ", new Date(targetDate).toDateString());
 
   // Tell ned
   const nedtellingInterval = setInterval(function () {
-    const currentDate = new Date().getTime();
-    const timeDifference = targetDate - currentDate;
 
-    // Sjekk om det er den internasjonale nasjonale muggedagen
-    if (timeDifference <= 0) {
-      clearInterval(nedtellingInterval);
-      document.getElementById("nedtelling").innerHTML = `<h2 class="feiring">Gratulerer med muggedagen!</h2>`;
-      
-      // Recalculate for next year
-      const nextTargetDate = getNextTargetDate(6, 1).getTime();
-      setTimeout(() => location.reload(), 5000); // Reload page after 5 seconds to start new countdown
-    } else {
-      // Tell dager, timer, minutter og sekunder
-      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-      
-      // Angi tid
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
-    }
-  }, 1);
+    checkDate();
+
+  }, 1000);
 });
-  
-
